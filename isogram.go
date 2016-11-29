@@ -12,14 +12,19 @@ import (
 )
 
 func main() {
-	isIsogram("Hello")
+	fmt.Println(isIsogram("golang is not an isogram"))
 }
 
-func isIsogram(s string) {
+func isIsogram(s string) string {
 	letters := strings.Split(s, "")
 	myMap := make(map[string]int)
 	for _, v := range letters {
 		myMap[v] += 1
 	}
-	fmt.Println(myMap)
+	for _, v := range myMap {
+		if v > 1 {
+			return "This word/phrase is not an isogram"
+		}
+	}
+	return "This word/phrase is an isogram"
 }
